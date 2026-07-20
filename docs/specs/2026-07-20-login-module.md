@@ -2,7 +2,7 @@
 
 **Spec-ID:** SPEC-20260720-login-module  
 **Date:** 2026-07-20  
-**Status:** Draft  
+**Status:** Approved  
 **Repo:** adilc-ecomm-app-demo  
 **Design Doc:** `docs/superpowers/specs/2026-07-20-login-module-design.md`
 
