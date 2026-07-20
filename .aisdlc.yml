@@ -1,0 +1,9 @@
+# Copy to .aisdlc.yml in your target repo and fill in.
+repo: sidhant-p/adilc-ecomm-app-demo
+project_number: 3
+spec_dir: docs/specs
+status_field: Status
+labels:
+  epic: epic
+  story: story
+  task: task

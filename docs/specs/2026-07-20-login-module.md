@@ -6,6 +6,20 @@
 **Repo:** adilc-ecomm-app-demo  
 **Design Doc:** `docs/superpowers/specs/2026-07-20-login-module-design.md`
 
+## Traceability — GitHub Issues
+
+Created in `sidhant-p/adilc-ecomm-app-demo`, added to Project #3.
+
+| Issue | Type | Title |
+|-------|------|-------|
+| [#1](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/1) | epic | Login Module — E-Commerce Application |
+| [#2](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/2) | story | [Infra] Project scaffolding & config |
+| [#3](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/3) | story | [Backend] Data layer & auth utilities |
+| [#4](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/4) | story | [Backend] Auth endpoints with error handling |
+| [#5](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/5) | story | [Frontend] Scaffolding & API client |
+| [#6](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/6) | story | [Frontend] Auth pages |
+| [#7](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/7) | story | [QA] Testing & verification |
+
 ---
 
 ## 1. Problem Statement
