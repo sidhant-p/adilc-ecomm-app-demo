@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "specId": "SPEC-20260720-login-module",
+  "feature": "login-module",
+  "createdAt": "2026-07-21T02:10:19.475Z",
+  "updatedAt": "2026-07-21T02:10:32.228Z",
+  "trace": {
+    "specPath": "",
+    "designDoc": "",
+    "issues": [],
+    "prs": []
+  },
+  "steps": [
+    {
+      "stepId": "s1",
+      "stage": "spec",
+      "agent": "po-agent",
+      "startedAt": "2026-07-21T02:10:19.476Z",
+      "endedAt": "2026-07-21T02:10:19.476Z",
+      "durationMs": 0,
+      "status": "passed",
+      "gates": [],
+      "trace": {},
+      "artifacts": [
+        "docs\\aisdlc\\specs\\2026-07-20-login-module.md"
+      ],
+      "notes": "Approved spec pre-existed; recording spec gate for ticket reconciliation."
+    },
+    {
+      "stepId": "s2",
+      "stage": "tickets",
+      "agent": "devlead-agent",
+      "startedAt": "2026-07-21T02:10:32.227Z",
+      "endedAt": "2026-07-21T02:10:32.228Z",
+      "durationMs": 1,
+      "status": "passed",
+      "gates": [],
+      "trace": {},
+      "artifacts": [
+        "docs\\aisdlc\\plans\\2026-07-20-login-module.md",
+        "current.json",
+        "desired.json",
+        "plan.json"
+      ],
+      "notes": "Reconciliation plan is all noops; existing GitHub issues already match the approved spec."
+    }
+  ]
+}

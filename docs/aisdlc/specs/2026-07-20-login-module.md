@@ -111,3 +111,13 @@ Primary risks:
 - Duplicate registration and invalid login produce clear user-facing errors
 - The implementation matches the approved design doc and the acceptance criteria above
 - The spec is approved before implementation starts and linked to the implementation ticketing flow
+
+## Ticket traceability
+
+- #1 `SPEC-20260720-login-module::epic::login-module`
+- #2 `SPEC-20260720-login-module::story::project-scaffolding-config`
+- #3 `SPEC-20260720-login-module::story::backend-data-layer-auth-utilities`
+- #4 `SPEC-20260720-login-module::story::backend-auth-endpoints-error-handling`
+- #5 `SPEC-20260720-login-module::story::frontend-scaffolding-api-client`
+- #6 `SPEC-20260720-login-module::story::frontend-auth-pages`
+- #7 `SPEC-20260720-login-module::story::qa-testing-verification`
