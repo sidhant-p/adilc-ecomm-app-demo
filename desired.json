@@ -1,0 +1,79 @@
+[
+  {
+    "key": "SPEC-20260720-login-module::epic::login-module",
+    "type": "epic",
+    "title": "[EPIC] Login Module — E-Commerce Application",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::epic::login-module -->\n<!-- aisdlc-hash: d009f83343ed747b -->\n\nFoundational authentication layer (registration, login, protected dashboard, logout) for the e-commerce app. React+Vite frontend (port 5173) and FastAPI backend (port 8000) with SQLite, bcrypt password hashing, and HS256 JWTs (30-min expiry). This epic unblocks all downstream authenticated features.\n\n**Spec-ID:** SPEC-20260720-login-module\n**Spec:** `docs/aisdlc/specs/2026-07-20-login-module-design.md`\n\n## Epic-level Definition of Done\n- [ ] All 6 stories below are complete and closed\n- [ ] Backend `pytest` suite passes with 0 failures\n- [ ] Frontend `vitest` suite passes with 0 failures\n- [ ] E2E happy path (register -> login -> dashboard -> logout) passes\n- [ ] API contract (status codes + response shapes) matches the spec exactly\n- [ ] `.env` and `ecomm.db` are gitignored; no committed secrets\n- [ ] CORS restricted to `http://localhost:5173`\n- [ ] No partially-implemented out-of-scope features left in committed code\n\n## Child Stories (build-dependency order)\n- [ ] #2 [Infra] Project scaffolding & config\n- [ ] #3 [Backend] Data layer & auth utilities\n- [ ] #4 [Backend] Auth endpoints with error handling\n- [ ] #5 [Frontend] Scaffolding & API client\n- [ ] #6 [Frontend] Auth pages\n- [ ] #7 [QA] Testing & verification",
+    "labels": [
+      "epic"
+    ],
+    "parentKey": "",
+    "hash": "d009f83343ed747b"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::project-scaffolding-config",
+    "type": "story",
+    "title": "[Infra] Project scaffolding & config",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::project-scaffolding-config -->\n<!-- aisdlc-hash: 8d2bd4478b3b4dcd -->\n\nEstablish the monorepo skeleton, dependency manifests, environment config, and CORS so backend and frontend code can be built on a stable foundation. Security-sensitive files must be gitignored **before** any backend code is written (Risk R4).\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** none\r\n\r\n## Acceptance Criteria\r\n- [ ] Monorepo layout created: `frontend/` and `backend/` directories matching spec §4\r\n- [ ] `.gitignore` includes `.env` and `ecomm.db` (and standard Python/Node ignores)\r\n- [ ] `backend/requirements.txt` lists: `fastapi`, `uvicorn[standard]`, `sqlalchemy`, `passlib[bcrypt]`, `python-jose[cryptography]`, `python-dotenv`\r\n- [ ] `.env.example` provided with a `SECRET_KEY` placeholder (non-real value)\r\n- [ ] CORS middleware in `main.py` restricts `allow_origins` to `[\"http://localhost:5173\"]`\r\n- [ ] FastAPI app boots on port 8000 and a live axios call from the frontend origin is not blocked by CORS (Risk R5)\r\n- [ ] No secret with a real value is committed to the repo\r\n\r\n## Tasks\r\n- [ ] Create monorepo directory structure (`backend/`, `frontend/`) per spec §4\r\n- [ ] Add `.gitignore` with `.env` and `ecomm.db` before any backend code lands\r\n- [ ] Author `backend/requirements.txt` with the six pinned dependencies\r\n- [ ] Add `.env.example` + dotenv loading; fail-fast if `SECRET_KEY` missing\r\n- [ ] Bootstrap `main.py` with FastAPI app + CORS restricted to localhost:5173\n\n## Dependencies\n- none\n\n<!-- aisdlc-deps:  -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "8d2bd4478b3b4dcd"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::backend-data-layer-auth-utilities",
+    "type": "story",
+    "title": "[Backend] Data layer & auth utilities",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::backend-data-layer-auth-utilities -->\n<!-- aisdlc-hash: d3bdc066f5f17a77 -->\n\nImplement the persistence layer (SQLAlchemy `User` model, SQLite engine, `get_db` dependency) and the reusable security primitives (bcrypt hashing, JWT create/verify). These are consumed by every auth endpoint.\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** Story 1 (scaffolding)\r\n\r\n## Acceptance Criteria\r\n- [ ] `User` model has `id`, `email` (unique), `hashed_password`, `full_name`, `created_at`\r\n- [ ] `database.py` creates a SQLite engine (`sqlite:///./ecomm.db`), exposes `get_db`, and runs `Base.metadata.create_all()` on startup\r\n- [ ] `get_password_hash` produces bcrypt hashes with prefix `$2b$`; `verify_password` validates correctly\r\n- [ ] Plaintext passwords are never persisted (US-07)\r\n- [ ] `create_access_token` issues HS256 tokens with 30-min expiry, encoding user identity in `sub`\r\n- [ ] `get_current_user` dependency raises HTTP 401 on missing, expired, or tampered tokens\r\n- [ ] Pydantic schemas defined: `UserCreate`, `UserLogin`, `UserOut` (no password), `Token`\r\n- [ ] `UserCreate` enforces minimum password length of 8 characters (OQ-4 resolved)\r\n\r\n## Tasks\r\n- [ ] Implement `database.py` engine + `get_db` dependency\r\n- [ ] Implement `models.py` `User` model with unique email + `created_at` default\r\n- [ ] Implement `schemas.py` (`UserCreate` min_length=8, `UserLogin`, `UserOut`, `Token`)\r\n- [ ] Implement bcrypt helpers in `auth.py` (`get_password_hash`, `verify_password`)\r\n- [ ] Implement JWT create/verify in `auth.py` (`create_access_token`, `get_current_user`)\n\n## Dependencies\n- #2\n\n<!-- aisdlc-deps: 2 -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "d3bdc066f5f17a77"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::backend-auth-endpoints-error-handling",
+    "type": "story",
+    "title": "[Backend] Auth endpoints with error handling",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::backend-auth-endpoints-error-handling -->\n<!-- aisdlc-hash: a947b1b3c805d375 -->\n\nExpose the four auth endpoints in `routers/auth.py` with correct status codes, response shapes, and error handling, wiring together the data layer and security utilities.\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** Story 2 (data layer & auth utilities)\r\n\r\n## Acceptance Criteria\r\n- [ ] `POST /auth/register` → 201 returning `id`, `email`, `full_name`, `created_at`; no password field\r\n- [ ] `POST /auth/register` → 409 on duplicate email (catch `IntegrityError`, Risk R3)\r\n- [ ] `POST /auth/register` → 400/422 on missing/malformed fields, including password shorter than 8 chars\r\n- [ ] `POST /auth/login` → 200 with `access_token` and `token_type: \"bearer\"` for valid credentials\r\n- [ ] `POST /auth/login` → 401 for wrong password or unregistered email (no field-specific leakage)\r\n- [ ] `POST /auth/logout` → 200 regardless of whether a token is supplied (stateless)\r\n- [ ] `GET /auth/me` → 200 with user fields when a valid Bearer token is supplied\r\n- [ ] `GET /auth/me` → 401 when token is missing, expired, or tampered\r\n- [ ] No endpoint ever returns `hashed_password` or any bcrypt-prefixed string\r\n\r\n## Tasks\r\n- [ ] Implement `POST /auth/register` (hash + persist → 201; IntegrityError → 409)\r\n- [ ] Implement `POST /auth/login` (verify → JWT 200; generic 401 on failure)\r\n- [ ] Implement `POST /auth/logout` (stateless 200)\r\n- [ ] Implement `GET /auth/me` (protected via `get_current_user`)\n\n## Dependencies\n- #3\n\n<!-- aisdlc-deps: 3 -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "a947b1b3c805d375"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::frontend-scaffolding-api-client",
+    "type": "story",
+    "title": "[Frontend] Scaffolding & API client",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::frontend-scaffolding-api-client -->\n<!-- aisdlc-hash: 0105db8c9969228b -->\n\nStand up the Vite React app, routing, the shared axios client with JWT request/response interceptors, and the `ProtectedRoute` guard — the reusable auth plumbing every page depends on.\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** Story 3 (auth endpoints — API contract)\r\n\r\n## Acceptance Criteria\r\n- [ ] Vite React app runs on port 5173 with `react-router-dom` and `axios` installed\r\n- [ ] `BrowserRouter` with routes for `/register`, `/login`, `/dashboard`\r\n- [ ] `api/axiosClient.js` is a single instance; request interceptor attaches `Authorization: Bearer <token>` from `localStorage[\"access_token\"]`\r\n- [ ] Response interceptor catches 401 globally: clears token and redirects to `/login` (US-05)\r\n- [ ] `ProtectedRoute` redirects to `/login` when `localStorage[\"access_token\"]` is absent, without calling `GET /auth/me`\r\n- [ ] Auth state uses raw JWT string in `localStorage[\"access_token\"]` only (no Redux/Zustand)\r\n\r\n## Tasks\r\n- [ ] Scaffold Vite React app + install `react-router-dom`, `axios`\r\n- [ ] Configure router with `/register`, `/login`, `/dashboard` (dashboard in ProtectedRoute)\r\n- [ ] Build `api/axiosClient.js` with Bearer request interceptor\r\n- [ ] Add global 401 response interceptor (clear token + redirect)\r\n- [ ] Implement `ProtectedRoute` component\n\n## Dependencies\n- #4\n\n<!-- aisdlc-deps: 4 -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "0105db8c9969228b"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::frontend-auth-pages",
+    "type": "story",
+    "title": "[Frontend] Auth pages",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::frontend-auth-pages -->\n<!-- aisdlc-hash: 5827b166d45848da -->\n\nBuild the three user-facing pages — Register, Login, Dashboard — with inline error handling for all failure modes and the logout flow.\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** Story 4 (frontend scaffolding & API client)\r\n\r\n## Acceptance Criteria\r\n- [ ] `/register` renders a form with `full_name`, `email`, `password`; on 201 redirects to `/login`\r\n- [ ] Duplicate email (409) shows an inline error containing \"already registered\"; page does not navigate\r\n- [ ] Missing/invalid field (400/422) shows an inline validation error; stays on `/register`\r\n- [ ] `/login` renders `email`/`password` form; on 200 stores JWT in `localStorage[\"access_token\"]` and redirects to `/dashboard`\r\n- [ ] Wrong/unregistered credentials (401) show inline \"Invalid credentials\"; no token stored\r\n- [ ] `/dashboard` calls `GET /auth/me` on mount with Bearer header and displays user name + email (US-08)\r\n- [ ] Logout button calls `POST /auth/logout`, clears `localStorage[\"access_token\"]`, redirects to `/login`\r\n- [ ] After logout, navigating back to `/dashboard` redirects to `/login`\r\n- [ ] All form errors are rendered inline (no alert/modal)\r\n\r\n## Tasks\r\n- [ ] Build `RegisterPage` (success redirect + 409/400 inline errors)\r\n- [ ] Build `LoginPage` (store JWT + redirect; 401 inline error, no token)\r\n- [ ] Build `DashboardPage` with `GET /auth/me` displaying user info\r\n- [ ] Implement Logout flow (+ post-logout guard redirect)\r\n- [ ] Extract shared `AuthForm` + inline error rendering (optional)\n\n## Dependencies\n- #5\n\n<!-- aisdlc-deps: 5 -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "5827b166d45848da"
+  },
+  {
+    "key": "SPEC-20260720-login-module::story::qa-testing-verification",
+    "type": "story",
+    "title": "[QA] Testing & verification",
+    "body": "<!-- aisdlc-key: SPEC-20260720-login-module::story::qa-testing-verification -->\n<!-- aisdlc-hash: eb89b6a799a6f5de -->\n\nProve the contract and the happy path end-to-end: backend `pytest`, frontend `vitest`, security checks, and a Playwright E2E flow. Closes out the epic's quality gates.\r\n\r\n**Spec-ID:** SPEC-20260720-login-module\r\n**Depends on:** Stories 3 & 5\r\n\r\n## Acceptance Criteria\r\n- [ ] `pytest` suite covers register (201/409/400-422), login (200/401), logout (200), `/auth/me` (200/401) and passes with 0 failures\r\n- [ ] Test asserts stored password is a bcrypt hash (`$2b$` prefix) and never equals plaintext\r\n- [ ] Test asserts no endpoint returns `hashed_password` or a bcrypt-prefixed string\r\n- [ ] `vitest` suite covers form rendering, success redirects, inline errors, and `ProtectedRoute` guard; passes with 0 failures\r\n- [ ] E2E Playwright test: register → login → dashboard → logout → confirm redirect\r\n- [ ] No `console.error` or uncaught promise rejections during the E2E happy path\r\n- [ ] Repo scan confirms no committed real `SECRET_KEY`; `.env` present in `.gitignore`\r\n- [ ] API contract (status codes + response shapes) matches the spec exactly\r\n\r\n## Tasks\r\n- [ ] Backend `pytest` suite for all endpoint status codes (test DB)\r\n- [ ] Backend security tests (bcrypt storage + no hash leakage)\r\n- [ ] Frontend `vitest` suite (pages + ProtectedRoute + inline errors)\r\n- [ ] E2E Playwright happy-path test (register → login → dashboard → logout)\r\n- [ ] Repo secret-scan / gitignore verification\n\n## Dependencies\n- #4\n- #6\n\n<!-- aisdlc-deps: 4,6 -->",
+    "labels": [
+      "story"
+    ],
+    "parentKey": "SPEC-20260720-login-module::epic::login-module",
+    "hash": "eb89b6a799a6f5de"
+  }
+]

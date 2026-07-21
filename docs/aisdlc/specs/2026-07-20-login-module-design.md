@@ -6,6 +6,15 @@
 Status: Approved  
 **Design Input:** [docs/superpowers/specs/2026-07-20-login-module-design.md](../../superpowers/specs/2026-07-20-login-module-design.md)
 
+**Tickets:**
+- #1 [EPIC] Login Module — E-Commerce Application
+- #2 [Infra] Project scaffolding & config
+- #3 [Backend] Data layer & auth utilities
+- #4 [Backend] Auth endpoints with error handling
+- #5 [Frontend] Scaffolding & API client
+- #6 [Frontend] Auth pages
+- #7 [QA] Testing & verification
+
 ---
 
 ## Problem Statement
