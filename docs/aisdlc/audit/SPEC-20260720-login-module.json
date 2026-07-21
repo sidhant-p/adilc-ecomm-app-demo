@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "specId": "SPEC-20260720-login-module",
   "feature": "login-module",
-  "createdAt": "2026-07-21T02:10:19.475Z",
-  "updatedAt": "2026-07-21T02:10:32.228Z",
+  "createdAt": "2026-07-21T13:53:49.441Z",
+  "updatedAt": "2026-07-21T13:55:30.398Z",
   "trace": {
-    "specPath": "",
-    "designDoc": "",
+    "specPath": "docs/aisdlc/specs/2026-07-20-login-module-design.md",
+    "designDoc": "docs/superpowers/specs/2026-07-20-login-module-design.md",
     "issues": [],
     "prs": []
   },
@@ -15,34 +15,61 @@
       "stepId": "s1",
       "stage": "spec",
       "agent": "po-agent",
-      "startedAt": "2026-07-21T02:10:19.476Z",
-      "endedAt": "2026-07-21T02:10:19.476Z",
-      "durationMs": 0,
-      "status": "passed",
-      "gates": [],
-      "trace": {},
-      "artifacts": [
-        "docs\\aisdlc\\specs\\2026-07-20-login-module.md"
-      ],
-      "notes": "Approved spec pre-existed; recording spec gate for ticket reconciliation."
-    },
-    {
-      "stepId": "s2",
-      "stage": "tickets",
-      "agent": "devlead-agent",
-      "startedAt": "2026-07-21T02:10:32.227Z",
-      "endedAt": "2026-07-21T02:10:32.228Z",
+      "startedAt": "2026-07-21T13:53:57.965Z",
+      "endedAt": "2026-07-21T13:53:57.966Z",
       "durationMs": 1,
       "status": "passed",
       "gates": [],
       "trace": {},
-      "artifacts": [
-        "docs\\aisdlc\\plans\\2026-07-20-login-module.md",
-        "current.json",
-        "desired.json",
-        "plan.json"
+      "artifacts": [],
+      "notes": "PO section: problem statement, business value, scope, user stories"
+    },
+    {
+      "stepId": "s2",
+      "stage": "spec",
+      "agent": "qa-agent",
+      "startedAt": "2026-07-21T13:53:58.675Z",
+      "endedAt": "2026-07-21T13:53:58.676Z",
+      "durationMs": 1,
+      "status": "passed",
+      "gates": [],
+      "trace": {},
+      "artifacts": [],
+      "notes": "QA section: 8 Gherkin scenarios, Definition of Done"
+    },
+    {
+      "stepId": "s3",
+      "stage": "spec",
+      "agent": "devlead-agent",
+      "startedAt": "2026-07-21T13:53:59.379Z",
+      "endedAt": "2026-07-21T13:53:59.380Z",
+      "durationMs": 1,
+      "status": "passed",
+      "gates": [],
+      "trace": {},
+      "artifacts": [],
+      "notes": "Dev Lead section: feasibility, risks, dependencies, open questions"
+    },
+    {
+      "stepId": "s4",
+      "stage": "spec",
+      "agent": "user",
+      "startedAt": "2026-07-21T13:55:30.397Z",
+      "endedAt": "2026-07-21T13:55:30.397Z",
+      "durationMs": 0,
+      "status": "passed",
+      "gates": [
+        {
+          "name": "spec-approved",
+          "result": "passed",
+          "reason": "user-approved"
+        }
       ],
-      "notes": "Reconciliation plan is all noops; existing GitHub issues already match the approved spec."
+      "trace": {},
+      "artifacts": [
+        "docs/aisdlc/specs/2026-07-20-login-module-design.md"
+      ],
+      "notes": "Spec approved by user; all sections assembled from po-agent, qa-agent, devlead-agent"
     }
   ]
 }
