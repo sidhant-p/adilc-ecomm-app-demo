@@ -27,9 +27,9 @@ def _reload_main(monkeypatch, secret_key="test-only-secret"):
 
 def test_missing_secret_key_raises_runtime_error(monkeypatch):
     monkeypatch.delenv("SECRET_KEY", raising=False)
-    import main as app_module
+    sys.modules.pop("main", None)
     with pytest.raises(RuntimeError, match="SECRET_KEY"):
-        importlib.reload(app_module)
+        importlib.import_module("main")
 
 
 def test_cors_allow_origins_is_exactly_localhost_5173(monkeypatch):
