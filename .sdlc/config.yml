@@ -1,0 +1,17 @@
+# sdlc-flightdeck config for a team that INSTALLS the plugin.
+# Copy to .sdlc/config.yml at the root of the repo you want the plugin to govern.
+config_schema_version: 1
+tracker: github          # github | jira
+repo:                    # required when tracker: github
+  owner: accenture-rde
+  name: 311256_sdlc-flightdeck
+# jira:                  # required when tracker: jira (ACLI = Jira Cloud only)
+#   site: your-org.atlassian.net
+#   project: PROJ
+#   deployment: cloud    # cloud | server (server/DC uses REST fallback)
+markers:
+  prefix: sdlc           # optional, default: sdlc
+audit:
+  dir: .sdlc/audit             # optional, default: audit
+learnings:
+  file: docs/ai-learnings.md  # optional, default: docs/ai-learnings.md
