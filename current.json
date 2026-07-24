@@ -1,9 +1,0 @@
-[
-  {"number":1,"key":"SPEC-20260720-login-module::epic::login-module","hash":null,"title":"[EPIC] Login Module — E-Commerce Application","labels":["epic"],"state":"open","activity":false},
-  {"number":2,"key":"SPEC-20260720-login-module::story::project-scaffolding-config","hash":null,"title":"[Infra] Project scaffolding & config","labels":["story"],"state":"open","activity":false},
-  {"number":3,"key":"SPEC-20260720-login-module::story::backend-data-layer-auth-utilities","hash":null,"title":"[Backend] Data layer & auth utilities","labels":["story"],"state":"open","activity":false},
-  {"number":4,"key":"SPEC-20260720-login-module::story::backend-auth-endpoints-error-handling","hash":null,"title":"[Backend] Auth endpoints with error handling","labels":["story"],"state":"open","activity":false},
-  {"number":5,"key":"SPEC-20260720-login-module::story::frontend-scaffolding-api-client","hash":null,"title":"[Frontend] Scaffolding & API client","labels":["story"],"state":"open","activity":false},
-  {"number":6,"key":"SPEC-20260720-login-module::story::frontend-auth-pages","hash":null,"title":"[Frontend] Auth pages","labels":["story"],"state":"open","activity":false},
-  {"number":7,"key":"SPEC-20260720-login-module::story::qa-testing-verification","hash":null,"title":"[QA] Testing & verification","labels":["story"],"state":"open","activity":false}
-]
