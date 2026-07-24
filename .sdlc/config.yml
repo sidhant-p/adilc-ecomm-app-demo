@@ -9,6 +9,8 @@ repo:                    # required when tracker: github
 #   site: your-org.atlassian.net
 #   project: PROJ
 #   deployment: cloud    # cloud | server (server/DC uses REST fallback)
+spec:
+  pr_base: master        # base branch for spec PRs
 markers:
   prefix: sdlc           # optional, default: sdlc
 audit:
