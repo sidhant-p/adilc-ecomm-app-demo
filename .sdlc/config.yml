@@ -3,8 +3,8 @@
 config_schema_version: 1
 tracker: github          # github | jira
 repo:                    # required when tracker: github
-  owner: accenture-rde
-  name: 311256_sdlc-flightdeck
+  owner: sidhant-p
+  name: adilc-ecomm-app-demo
 # jira:                  # required when tracker: jira (ACLI = Jira Cloud only)
 #   site: your-org.atlassian.net
 #   project: PROJ
