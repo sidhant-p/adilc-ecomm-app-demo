@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "event_id": "11b0c41a-9cd5-4104-885b-3aff6e4976ce",
+  "correlation_id": "intake-preview",
+  "stage": "intake",
+  "event_type": "intake.previewed",
+  "actor": {
+    "type": "human",
+    "id": "sidhant.pandey"
+  },
+  "ts": "2026-07-24T19:18:03.940Z",
+  "outcome": "proposed",
+  "refs": {},
+  "metrics": {},
+  "level": "diagnostic",
+  "data": {
+    "title": "Implement Login Module (Frontend + Backend)"
+  }
+}
