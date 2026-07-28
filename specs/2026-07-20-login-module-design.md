@@ -92,3 +92,7 @@ Frontend and backend run independently. React calls the FastAPI REST API. CORS c
 - Email verification
 - Role-based access control
 - Production deployment configuration
+
+
+---
+_Spec review PR: https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/14 · Ticket: https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/13 · correlation: wi-github-13_
