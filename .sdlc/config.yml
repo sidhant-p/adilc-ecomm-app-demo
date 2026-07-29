@@ -1,19 +1,27 @@
 # sdlc-flightdeck config for a team that INSTALLS the plugin.
 # Copy to .sdlc/config.yml at the root of the repo you want the plugin to govern.
-config_schema_version: 1
-tracker: github          # github | jira
-repo:                    # required when tracker: github
+# Read directly by the skills — there is no loader or schema.
+repo:
   owner: sidhant-p
   name: adilc-ecomm-app-demo
-# jira:                  # required when tracker: jira (ACLI = Jira Cloud only)
-#   site: your-org.atlassian.net
-#   project: PROJ
-#   deployment: cloud    # cloud | server (server/DC uses REST fallback)
+intake:
+  dir: docs/spec             # optional, default: docs/spec
+  pr_base: master             # optional, default: master (some teams: a release branch)
 spec:
-  pr_base: master        # base branch for spec PRs
-markers:
-  prefix: sdlc           # optional, default: sdlc
-audit:
-  dir: .sdlc/audit             # optional, default: audit
+  dir: specs                # optional, default: specs
+  pr_base: master              # optional, default: main
+plan:
+  dir: plans                # optional, default: plans
+  pr_base: master              # optional, default: main
+implement:
+  test_command: node --test # optional, default: node --test
+  branch_prefix: sdlc/impl- # optional, default: sdlc/impl-
+  pr_base: master              # optional, default: main
+ship:
+  merge_method: squash       # merge | squash | rebase, default: squash
+  delete_branch: true        # delete the head branch after merge
+  require_ci: true           # refuse to merge unless required checks are green
+  changelog_file: CHANGELOG.md
+  tag_prefix: v               # used for --release tags, e.g. v1.4.0
 learnings:
   file: docs/ai-learnings.md  # optional, default: docs/ai-learnings.md
