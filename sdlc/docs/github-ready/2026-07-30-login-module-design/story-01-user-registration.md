@@ -2,7 +2,7 @@
 spec: spec/2026-07-30-login-module-design.md
 parent_work_item: wi-github-17
 story_index: 1
-title: Register a new user account
+title: Register a new user login account
 unpopulated: [UI copy/wording for error messages, password strength rules, rate limiting on registration endpoint]
 ---
 
