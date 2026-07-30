@@ -101,3 +101,14 @@ Frontend and backend run independently. React calls the FastAPI REST API. CORS c
 | Tracking issue | [#17](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/17) |
 | Spec-review PR | [#18](https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/18) |
 <!-- sdlc:intake-mapping:end -->
+
+## Tracker
+
+Draft PR: https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/19
+
+| # | Story | Issue |
+|---|-------|-------|
+| 1 | Register a new user login account | #20 |
+| 2 | Log in with email and password | #21 |
+| 3 | Log out of the session | #22 |
+| 4 | View protected dashboard after login | #23 |
