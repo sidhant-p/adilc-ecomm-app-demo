@@ -30,3 +30,6 @@ node_modules/
 .vscode/
 *.iml
 Thumbs.db
+
+# Local worktrees
+.worktrees/
