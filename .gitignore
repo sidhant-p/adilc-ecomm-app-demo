@@ -3,6 +3,7 @@
 ecomm.db
 backend/.env
 backend/ecomm.db
+backend/ecomm-*.db
 
 # Python
 __pycache__/
