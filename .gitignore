@@ -1,6 +1,8 @@
 # SECRETS & LOCAL DATABASE
 .env
 ecomm.db
+backend/.env
+backend/ecomm.db
 
 # Python
 __pycache__/
