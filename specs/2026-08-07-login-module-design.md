@@ -98,6 +98,6 @@ Frontend and backend run independently. React calls the FastAPI REST API. CORS c
 
 | Artifact | Reference |
 | --- | --- |
-| Tracking issue | [#17](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/17) |
-| Spec-review PR | [#18](https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/18) |
+| Tracking issue | [#26](https://github.com/sidhant-p/adilc-ecomm-app-demo/issues/26) |
+| Spec-review PR | [#27](https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/27) |
 <!-- sdlc:intake-mapping:end -->
