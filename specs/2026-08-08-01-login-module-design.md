@@ -102,3 +102,14 @@ Frontend and backend run independently. React calls the FastAPI REST API. CORS c
 | Spec-review PR | [#30](https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/30) |
 <!-- sdlc:intake-mapping:end -->
 
+## Tracker
+
+Draft PR: https://github.com/sidhant-p/adilc-ecomm-app-demo/pull/31
+
+| # | Story | Issue |
+|---|-------|-------|
+| 1 | Implement authentication API and user persistence | #32 |
+| 2 | Build registration and login pages | #33 |
+| 3 | Protect dashboard and session flow | #34 |
+| 4 | Harden auth module security configuration | #35 |
+
