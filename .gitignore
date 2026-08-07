@@ -1,6 +1,9 @@
 # SECRETS & LOCAL DATABASE
 .env
 ecomm.db
+backend/.env
+backend/ecomm.db
+backend/ecomm-*.db
 
 # Python
 __pycache__/
@@ -30,3 +33,6 @@ node_modules/
 .vscode/
 *.iml
 Thumbs.db
+
+# Local worktrees
+.worktrees/
