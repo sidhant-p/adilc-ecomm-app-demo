@@ -9,19 +9,22 @@ intake:
   pr_base: master             # optional, default: master (some teams: a release branch)
 spec:
   dir: specs                # optional, default: specs
-  pr_base: master              # optional, default: main
-plan:
-  dir: plans                # optional, default: plans
-  pr_base: master              # optional, default: main
-implement:
-  test_command: node --test # optional, default: node --test
-  branch_prefix: sdlc/impl- # optional, default: sdlc/impl-
-  pr_base: master              # optional, default: main
-ship:
-  merge_method: squash       # merge | squash | rebase, default: squash
-  delete_branch: true        # delete the head branch after merge
-  require_ci: true           # refuse to merge unless required checks are green
-  changelog_file: CHANGELOG.md
-  tag_prefix: v               # used for --release tags, e.g. v1.4.0
-learnings:
-  file: docs/ai-learnings.md  # optional, default: docs/ai-learnings.md
+  pr_base: main              # optional, default: main
+tracker:
+  type: github          # only "github" supported this cycle; any other value fails loud
+draft:
+  dir: sdlc/docs        # optional, default: sdlc/docs — parent of <type>-ready/<basename>/ story files
+  label: spec-approved  # optional, default: spec-approved — the issue label that gates tracker-draft
+dev:
+  plan:
+    dir: plans                                   # optional, default: plans
+    pr_base: main                                # optional, default: main
+    ready_label: Ready For Development           # optional, default: Ready For Development — human-applied gate; dev-plan won't pick up a story without it
+    in_progress_label: Dev Planning In Progress  # optional, default: Dev Planning In Progress — dev-plan swaps to this on pickup
+  implement:
+    test_command: node --test   # optional, default: node --test
+    branch_prefix: sdlc/dev-implement-  # optional, default: sdlc/dev-implement-
+    pr_base: main               # optional, default: main
+test:
+  dir: sdlc/tests   # optional, default: sdlc/tests — where <id>.md test-design docs live
+  pr_base: main     # optional, default: main — base for the test-plan / test-author PRs
